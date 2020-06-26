@@ -21,8 +21,6 @@ using std::cin;
 using std::endl;
 using std::vector;
 
-
-
 vector<Soldados*> team1;
 vector<Soldados*> team2;
 vector<soldadoAsalto*> asaltos;
@@ -311,12 +309,12 @@ int main(int argc, char** argv) {
 			}
 			
 			case 4:{// Guardar soldados
-				
+				cout<<"Esta en la opcion 1"<<endl;
 				break;
 			}
 			
 			case 5:{// Cargar soldados
-				
+				cout<<"No me salio :("<<endl;
 				break;
 			}
 			
@@ -334,12 +332,9 @@ int main(int argc, char** argv) {
 					bool controlTeam2 = true;
 					if(t1==0 ){
 						controlTeam1 = false;	
-					}
-						
-					if(t2==0){
+					}if(t2==0){
 						controlTeam2 = false;
 					}
-					
 					team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
 					team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));		
 					if(team2[random2]->getPvida()<=0){
@@ -352,30 +347,26 @@ int main(int argc, char** argv) {
 						team1.erase(team1.begin()+random1);
 						muertesTeam1++;
 					}
-			
 					if(team1.size()==0 || team2.size()==0)
 						break;
 					}
-		
-				if(team1.size()==0 && team2.size()!=0){
-					cout << "Ha ganado el equipo 2" << endl << endl;
-				} else if (team2.size()==0 && team1.size()!=0){
-					cout << "Ha ganado el equipo 1" << endl << endl;
-				}else {
-					cout << "hubo un empate" << endl << endl;
+					if(team1.size()==0 && team2.size()!=0){
+						cout << "Ha ganado el equipo 2" << endl << endl;
+					}else if(team2.size()==0 && team1.size()!=0){
+						cout << "Ha ganado el equipo 1" << endl << endl;
+					}else {
+						cout << "hubo un empate" << endl << endl;
+					}
+				}
+				cout<<endl;
+				cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
+				cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
+				cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
+				cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
+				cout<<endl;
+				break;
 				}
 			}
-			cout<<endl;
-			cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
-			cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
-			cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
-			cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
-			cout<<endl;
-				
-				
-				break;
-			}
-		}
 		
 		
 	}while(opcion!=7);
