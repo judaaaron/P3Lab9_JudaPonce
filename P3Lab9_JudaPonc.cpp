@@ -139,7 +139,7 @@ int main(int argc, char** argv) {
     							string _velocidad= dAsaltos.velocidad;
     							string _fuerzX= dAsaltos.fuerzaExtra;
 								team2.push_back(new soldadoAsalto(_nombre,stoi(_vida),stoi(_fuerza),stoi(_velocidad),stoi(_fuerzX)));
-								cout<<"Soldado de asalto ha sido creado y escrito en el archivo exitosamente en el equipo 1"<<endl;
+								cout<<"Soldado de asalto ha sido creado y escrito en el archivo exitosamente en el equipo 2"<<endl;
 								break;
 							}
 						}
@@ -182,7 +182,7 @@ int main(int argc, char** argv) {
     							string _blindaje= dSoporte.blindaje;
     							string _camu= dSoporte.camuflaje;
 								team1.push_back(new soldadoSoporte(_nombre,stoi(_vida),stoi(_fuerza),stoi(_blindaje),stoi(_camu)));
-								cout<<"Soldado de soporte ha sido creado y escrito en el archivo exitosamente en el equipo 2"<<endl;
+								cout<<"Soldado de soporte ha sido creado y escrito en el archivo exitosamente en el equipo 1"<<endl;
 								break;
 							}
 							
