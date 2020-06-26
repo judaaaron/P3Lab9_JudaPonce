@@ -7,6 +7,8 @@
 #include "Soldados.h"
 #include "soldadoSoporte.h"
 #include "soldadoAsalto.h "
+#include <random>
+#include <time.h>
 using std::string;
 using std::strcpy;
 using std::stoi;
@@ -50,10 +52,10 @@ int main(int argc, char** argv) {
 	int opcion=7;
 	do{
 		cout<<"Seleccione una opcion "<<endl;
-		cout<<"1. Crear soldado"<<endl;
+		cout<<"1. Crear soldado(opcion ya incluida aqui)"<<endl;
 		cout<<"2. Eliminar soldados"<<endl;
 		cout<<"3. Listar soldados"<<endl;
-		cout<<"4. Guardar soldados"<<endl;
+		cout<<"4. Guardar soldados(en la opcion 1)"<<endl;
 		cout<<"5. Cargar soldados"<<endl;
 		cout<<"6. Simulación"<<endl;
 		cout<<"7 Salir"<<endl;
@@ -61,8 +63,13 @@ int main(int argc, char** argv) {
 		switch(opcion){
 			case 1:{// crear soldado
 				int option2;
-				string nombre;
-				int vida,fuerza,velocidad,fuerzaExtra,blindaje, camuflaje;
+				char nombre [20];
+    			char vida[5];
+    			char fuerza [5];
+    			char velocidad[5];
+    			char fuerzaExtra[5];
+    			char blindaje[5];
+    			char camuflaje[5];
 				cout<<"Ingrese nombre del soldado: ";
 				cin>>nombre;
 				cout<<"Ingrese vida del soldado: ";
@@ -95,14 +102,46 @@ int main(int argc, char** argv) {
 						}
 						switch(opTeam){
 							case 1:{// agregar al equipo 1
-								team1.push_back(new soldadoAsalto(nombre,vida,fuerza,velocidad,fuerzaExtra));
-								cout<<"Soldado de asalto ha sido creado exitosamente en el equipo 1"<<endl;
+								DatosAsaltos dAsaltos;
+    							ofstream binaryFile("team1.dat",ios::app|ios::binary);
+    						 	strcpy(dAsaltos.nombre,nombre);
+    							strcpy(dAsaltos.vida,vida);
+    							strcpy(dAsaltos.fuerza,fuerza);
+    							strcpy(dAsaltos.velocidad,velocidad);
+    							strcpy(dAsaltos.fuerzaExtra,fuerzaExtra);
+    
+    							binaryFile.write((char*)&dAsaltos,sizeof(DatosAsaltos));
+    						
+    							binaryFile.close();
+    							//cout<<"aqui llegaa";
+   								string _nombre = dAsaltos.nombre;
+    							string _vida=dAsaltos.vida;
+    							string _fuerza = dAsaltos.fuerza;
+    							string _velocidad= dAsaltos.velocidad;
+    							string _fuerzX= dAsaltos.fuerzaExtra;
+								team1.push_back(new soldadoAsalto(_nombre,stoi(_vida),stoi(_fuerza),stoi(_velocidad),stoi(_fuerzX)));
+								cout<<"Soldado de asalto ha sido creado y escrito en el archivo exitosamente en el equipo 1"<<endl;
 								break;
 							}
 							
 							case 2:{// agregar al equipo 2
-								team2.push_back(new soldadoAsalto(nombre,vida,fuerza,velocidad,fuerzaExtra));
-								cout<<"Soldado de asalto ha sido creado exitosamente en el equipo 2"<<endl;
+								DatosAsaltos dAsaltos;
+    							ofstream binaryFile("team2.dat",ios::app|ios::binary);
+    						 	strcpy(dAsaltos.nombre,nombre);
+    							strcpy(dAsaltos.vida,vida);
+    							strcpy(dAsaltos.fuerza,fuerza);
+    							strcpy(dAsaltos.velocidad,velocidad);
+    							strcpy(dAsaltos.fuerzaExtra,fuerzaExtra);
+    
+    							binaryFile.write((char*)&dAsaltos,sizeof(DatosAsaltos));
+    							binaryFile.close();
+   								string _nombre = dAsaltos.nombre;
+    							string _vida=dAsaltos.vida;
+    							string _fuerza = dAsaltos.fuerza;
+    							string _velocidad= dAsaltos.velocidad;
+    							string _fuerzX= dAsaltos.fuerzaExtra;
+								team2.push_back(new soldadoAsalto(_nombre,stoi(_vida),stoi(_fuerza),stoi(_velocidad),stoi(_fuerzX)));
+								cout<<"Soldado de asalto ha sido creado y escrito en el archivo exitosamente en el equipo 1"<<endl;
 								break;
 							}
 						}
@@ -129,14 +168,44 @@ int main(int argc, char** argv) {
 						}
 						switch(opTeam){
 							case 1:{// agregar al equipo 1
-								team1.push_back(new soldadoSoporte(nombre,vida,fuerza,blindaje,camuflaje));
-								cout<<"Soldado de soporte ha sido creado exitosamente en el equipo 1"<<endl;
+								DatosSoporte dSoporte;
+    							ofstream binaryFile("team1.dat",ios::app|ios::binary);
+    						 	strcpy(dSoporte.nombre,nombre);
+    							strcpy(dSoporte.vida,vida);
+    							strcpy(dSoporte.fuerza,fuerza);
+    							strcpy(dSoporte.blindaje,blindaje);
+    							strcpy(dSoporte.camuflaje,camuflaje);
+    
+    							binaryFile.write((char*)&dSoporte,sizeof(DatosSoporte));
+    							binaryFile.close();
+   								string _nombre = dSoporte.nombre;
+    							string _vida=dSoporte.vida;
+    							string _fuerza = dSoporte.fuerza;
+    							string _blindaje= dSoporte.blindaje;
+    							string _camu= dSoporte.camuflaje;
+								team1.push_back(new soldadoSoporte(_nombre,stoi(_vida),stoi(_fuerza),stoi(_blindaje),stoi(_camu)));
+								cout<<"Soldado de soporte ha sido creado y escrito en el archivo exitosamente en el equipo 2"<<endl;
 								break;
 							}
 							
 							case 2:{// agregar al equipo 2
-								team2.push_back(new soldadoSoporte(nombre,vida,fuerza,blindaje,camuflaje));
-								cout<<"Soldado de asalto ha sido creado exitosamente en el equipo 2"<<endl;
+								DatosSoporte dSoporte;
+    							ofstream binaryFile("team2.dat",ios::app|ios::binary);
+    						 	strcpy(dSoporte.nombre,nombre);
+    							strcpy(dSoporte.vida,vida);
+    							strcpy(dSoporte.fuerza,fuerza);
+    							strcpy(dSoporte.blindaje,blindaje);
+    							strcpy(dSoporte.camuflaje,camuflaje);
+    
+    							binaryFile.write((char*)&dSoporte,sizeof(DatosSoporte));
+    							binaryFile.close();
+   								string _nombre = dSoporte.nombre;
+    							string _vida=dSoporte.vida;
+    							string _fuerza = dSoporte.fuerza;
+    							string _blindaje= dSoporte.blindaje;
+    							string _camu= dSoporte.camuflaje;
+								team2.push_back(new soldadoSoporte(_nombre,stoi(_vida),stoi(_fuerza),stoi(_blindaje),stoi(_camu)));
+								cout<<"Soldado de soporte ha sido creado y escrito en el archivo exitosamente en el equipo 2"<<endl;
 								break;
 							}
 						}
@@ -252,6 +321,50 @@ int main(int argc, char** argv) {
 			}
 			
 			case 6:{//simulacion
+				int muertesTeam1=0,muertesTeam2=0;
+				if(team1.size()==0 || team2.size() == 0){
+					cout <<"Los equipos no tienen integrantes suficientes para combatir" << endl << endl;
+				}else {
+				while(true){
+					int random1 = rand() % team1.size();
+					int random2 = rand() % team2.size();
+					soldadoAsalto* t1 = dynamic_cast<soldadoAsalto*>(team1[random1]);
+					soldadoAsalto* t2 = dynamic_cast<soldadoAsalto*>(team2[random2]);
+					bool controlTeam1 = true; 
+					bool controlTeam2 = true;
+					if(t1==0 ){
+						controlTeam1 = false;	
+					}
+						
+					if(t2==0){
+						controlTeam2 = false;
+					}
+					
+					team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
+					team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));		
+					if(team2[random2]->getPvida()<=0){
+						delete team2[random2];
+						team2.erase(team2.begin()+random2);
+						muertesTeam2++;
+					}
+					if(team1[random1]->getPvida()<=0){
+						delete team1[random1];
+						team1.erase(team1.begin()+random1);
+						muertesTeam1++;
+					}
+			
+					if(team1.size()==0 || team2.size()==0)
+						break;
+					}
+		
+				if(team1.size()==0 && team2.size()!=0){
+					cout << "Ha ganado el equipo 2" << endl << endl;
+				} else if (team2.size()==0 && team1.size()!=0){
+					cout << "Ha ganado el equipo 1" << endl << endl;
+				}else {
+					cout << "hubo un empate" << endl << endl;
+				}
+			}
 				
 				
 				break;
@@ -262,5 +375,7 @@ int main(int argc, char** argv) {
 	}while(opcion!=7);
 	return 0;
 }
+
+
 
 

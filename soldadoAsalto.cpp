@@ -24,7 +24,18 @@ soldadoAsalto::soldadoAsalto(string name,int vida ,int fuerza ,int velocidad ,in
 	this->velocidad=velocidad;
 	this->fuerzaExtra=xforce;
 }
-
+void soldadoAsalto::PVida(bool control,int Ataque){
+	if(control)
+		this->pVida -= Ataque;
+	else
+		this->pVida -= Ataque/this->fuerzaExtra; 
+}
+int soldadoAsalto::Ataque(bool asaltar){
+	if(asaltar)
+		return this->fuerzaExtra*10;
+	else
+		return this->fuerzaExtra*(10+(this->velocidad*2));	
+}
 soldadoAsalto::~soldadoAsalto()
 {
 }

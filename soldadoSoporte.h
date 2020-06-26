@@ -14,6 +14,9 @@ class soldadoSoporte : public Soldados
 		void setBlindaje(int);
 		void setCamuflaje(int);
 		
+		void PVida(bool,int);
+		int Ataque(bool);
+		
 		~soldadoSoporte();
 	protected:
 		int blindaje, camuflaje;

@@ -23,6 +23,19 @@ soldadoSoporte::soldadoSoporte(string name, int vida, int fuerza, int blindaje, 
 	this->camuflaje=camufla;
 }
 
+void soldadoSoporte ::PVida(bool asaltar,int atac){
+	if(asaltar)
+		this->pVida -= atac/(this->blindaje*2);
+	else
+		this->pVida -= atac;
+}
+int soldadoSoporte::Ataque(bool asaltar){
+	if(asaltar)
+		return this->pFuerza*(15+this->camuflaje);
+	else
+		return this->pFuerza*10;	
+}
+
 soldadoSoporte::~soldadoSoporte()
 {
 }

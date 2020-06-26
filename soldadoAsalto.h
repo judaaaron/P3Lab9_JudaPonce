@@ -13,6 +13,9 @@ class soldadoAsalto : public Soldados
 		
 		void setVelocidad(int);
 		void setFuerzaExtra(int);
+		
+		void PVida(bool,int);
+		int Ataque(bool);
 	
 		~soldadoAsalto();
 	protected:
