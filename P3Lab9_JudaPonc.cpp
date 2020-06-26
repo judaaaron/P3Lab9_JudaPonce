@@ -347,6 +347,12 @@ int main(int argc, char** argv) {
 						team1.erase(team1.begin()+random1);
 						muertesTeam1++;
 					}
+					
+					cout<<endl;
+					cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
+					cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
+					cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
+					cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
 					if(team1.size()==0 || team2.size()==0)
 						break;
 					}
@@ -358,11 +364,7 @@ int main(int argc, char** argv) {
 						cout << "hubo un empate" << endl << endl;
 					}
 				}
-				cout<<endl;
-				cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
-				cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
-				cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
-				cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
+				
 				cout<<endl;
 				break;
 				}
