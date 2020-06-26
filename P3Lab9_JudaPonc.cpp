@@ -323,37 +323,37 @@ int main(int argc, char** argv) {
 				if(team1.size()==0 || team2.size() == 0){
 					cout <<"Los equipos no tienen integrantes suficientes para combatir" << endl << endl;
 				}else {
-				do{
-					int random1 = rand() % team1.size();
-					int random2 = rand() % team2.size();
-					soldadoAsalto* t1 = dynamic_cast<soldadoAsalto*>(team1[random1]);
-					soldadoAsalto* t2 = dynamic_cast<soldadoAsalto*>(team2[random2]);
-					bool controlTeam1 = true; 
-					bool controlTeam2 = true;
-					if(t1==0 ){
-						controlTeam1 = false;	
-					}if(t2==0){
-						controlTeam2 = false;
-					}
-					team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
-					team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));		
-					if(team2[random2]->getPvida()<=0){
-						delete team2[random2];
-						team2.erase(team2.begin()+random2);
-						muertesTeam2++;
-					}
-					if(team1[random1]->getPvida()<=0){
-						delete team1[random1];
-						team1.erase(team1.begin()+random1);
-						muertesTeam1++;
-					}
-					cout<<endl;
-					cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
-					cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
-					cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
-					cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
-					if(team1.size()==0 || team2.size()==0)
-						break;
+					do{
+						int random1 = rand() % team1.size();
+						int random2 = rand() % team2.size();
+						soldadoAsalto* t1 = dynamic_cast<soldadoAsalto*>(team1[random1]);
+						soldadoAsalto* t2 = dynamic_cast<soldadoAsalto*>(team2[random2]);
+						bool controlTeam1 = true; 
+						bool controlTeam2 = true;
+						if(t1==0 ){
+							controlTeam1 = false;	
+						}if(t2==0){
+							controlTeam2 = false;
+						}
+						team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
+						team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));		
+						if(team2[random2]->getPvida()<=0){
+							delete team2[random2];
+							team2.erase(team2.begin()+random2);
+							muertesTeam2++;
+						}
+						if(team1[random1]->getPvida()<=0){
+							delete team1[random1];
+							team1.erase(team1.begin()+random1);
+							muertesTeam1++;
+						}
+						cout<<endl;
+						cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
+						cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
+						cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
+						cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
+						if(team1.size()==0 || team2.size()==0)
+							break;
 					}while(true);
 					if(team1.size()==0 && team2.size()!=0){
 						cout << "Ha ganado el equipo 2" << endl << endl;
