@@ -365,6 +365,7 @@ int main(int argc, char** argv) {
 					cout << "hubo un empate" << endl << endl;
 				}
 			}
+			cout<<endl;
 			cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
 			cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
 			cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
