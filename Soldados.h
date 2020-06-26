@@ -16,7 +16,7 @@ class Soldados
 		void setNombre(string);
 		void setVida(int);
 		void setFuerza(int);
-		virtual bool ataque()=0;
+		//virtual bool ataque()=0;
 		~Soldados();
 	protected:
 		string nombre;
