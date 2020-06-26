@@ -52,11 +52,11 @@ int main(int argc, char** argv) {
 	int opcion=7;
 	do{
 		cout<<"Seleccione una opcion "<<endl;
-		cout<<"1. Crear soldado(opcion ya incluida aqui)"<<endl;
+		cout<<"1. Crear soldado(opcion 4 ya incluida aqui)"<<endl;
 		cout<<"2. Eliminar soldados"<<endl;
 		cout<<"3. Listar soldados"<<endl;
 		cout<<"4. Guardar soldados(en la opcion 1)"<<endl;
-		cout<<"5. Cargar soldados"<<endl;
+		cout<<"5. Cargar soldados(no termindo)"<<endl;
 		cout<<"6. Simulación"<<endl;
 		cout<<"7 Salir"<<endl;
 		cin>>opcion;
@@ -365,6 +365,11 @@ int main(int argc, char** argv) {
 					cout << "hubo un empate" << endl << endl;
 				}
 			}
+			cout <<"Muertes del equipo 1: " << muertesTeam1 << endl;
+			cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
+			cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
+			cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
+			cout<<endl;
 				
 				
 				break;

@@ -6,7 +6,6 @@
 class soldadoSoporte : public Soldados
 {
 	public:
-		soldadoSoporte();
 		soldadoSoporte(string, int, int, int, int);
 		int getBlindaje();
 		int getCamuflaje();

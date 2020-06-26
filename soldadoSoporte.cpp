@@ -1,8 +1,5 @@
 #include "soldadoSoporte.h"
 
-soldadoSoporte::soldadoSoporte()
-{
-}
 int soldadoSoporte:: getBlindaje(){
 	return this->blindaje;
 }
@@ -24,16 +21,19 @@ soldadoSoporte::soldadoSoporte(string name, int vida, int fuerza, int blindaje, 
 }
 
 void soldadoSoporte ::PVida(bool asaltar,int atac){
-	if(asaltar)
+	if(asaltar){
 		this->pVida -= atac/(this->blindaje*2);
-	else
+	}else{
 		this->pVida -= atac;
+	}		
 }
+
 int soldadoSoporte::Ataque(bool asaltar){
-	if(asaltar)
-		return this->pFuerza*(15+this->camuflaje);
-	else
-		return this->pFuerza*10;	
+	if(asaltar){
+		return this->pFuerza*(15+this->camuflaje);	
+	}else{
+		return this->pFuerza*10;
+	}		
 }
 
 soldadoSoporte::~soldadoSoporte()
