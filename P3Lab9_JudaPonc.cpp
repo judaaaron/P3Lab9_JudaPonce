@@ -323,7 +323,7 @@ int main(int argc, char** argv) {
 				if(team1.size()==0 || team2.size() == 0){
 					cout <<"Los equipos no tienen integrantes suficientes para combatir" << endl << endl;
 				}else {
-				while(true){
+				do{
 					int random1 = rand() % team1.size();
 					int random2 = rand() % team2.size();
 					soldadoAsalto* t1 = dynamic_cast<soldadoAsalto*>(team1[random1]);
@@ -347,7 +347,6 @@ int main(int argc, char** argv) {
 						team1.erase(team1.begin()+random1);
 						muertesTeam1++;
 					}
-					
 					cout<<endl;
 					cout<<"Cantidad de soldados vivos del team 1: " << team1.size() << endl;
 					cout<<"Cantidad de soldados vivos del team 2: " << team2.size() << endl;
@@ -355,7 +354,7 @@ int main(int argc, char** argv) {
 					cout<<"Muertes del equipo2 : " << muertesTeam2 << endl;
 					if(team1.size()==0 || team2.size()==0)
 						break;
-					}
+					}while(true);
 					if(team1.size()==0 && team2.size()!=0){
 						cout << "Ha ganado el equipo 2" << endl << endl;
 					}else if(team2.size()==0 && team1.size()!=0){
