@@ -314,22 +314,23 @@ int main(int argc, char** argv) {
 			}
 			
 			case 5:{// Cargar soldados
-				int subMenu;
-				cout<<endl<<"1.Cargar Equipo#1"<<endl<<"2.Cargar Equipo#2"<<endl<<"Elija la Opcion:";
-				cin >> subMenu;
+				int opcion;
+				cout<<"1.Cargar Equipo#1"<<endl;
+				cout<<"2.Cargar Equipo#2"<<endl;
+				cout<<"Elija la Opcion: ";
+				cin >> opcion;
 				size_t tempSize=0;
 				Soldados* padre1 = NULL;
-				if(subMenu == 1){
+				if(opcion == 1){
 					ifstream file("team1.dat",ios::binary);
 					for(int i = 0;i<team1.size();i++){
-						 
 						file.read((char*)&tempSize, sizeof(size_t));
 						padre1 = (Soldados*) malloc(tempSize);
 						file.read((char*)padre1,tempSize);
 						team1.push_back(padre1);
 					}
 					file.close();
-				}else if(subMenu == 2){
+				}else if(opcion == 2){
 					ifstream f_ile("team2.dat",ios::binary);
 					for(int i = 0;i<team2.size();i++){
 						f_ile.read((char*)&tempSize, sizeof(size_t));
