@@ -317,26 +317,26 @@ int main(int argc, char** argv) {
 				int opcion;
 				cout<<"1.Cargar Equipo#1"<<endl;
 				cout<<"2.Cargar Equipo#2"<<endl;
-				cout<<"Elija la Opcion: ";
+				cout<<"Seleccione una opcion: ";
 				cin >> opcion;
 				size_t tempSize=0;
-				Soldados* padre1 = NULL;
+				Soldados* dad = NULL;
 				if(opcion == 1){
 					ifstream file("team1.dat",ios::binary);
 					for(int i = 0;i<team1.size();i++){
 						file.read((char*)&tempSize, sizeof(size_t));
-						padre1 = (Soldados*) malloc(tempSize);
-						file.read((char*)padre1,tempSize);
-						team1.push_back(padre1);
+						dad = (Soldados*) malloc(tempSize);
+						file.read((char*)dad,tempSize);
+						team1.push_back(dad);
 					}
 					file.close();
 				}else if(opcion == 2){
 					ifstream out("team2.dat",ios::binary);
 					for(int i = 0;i<team2.size();i++){
 						out.read((char*)&tempSize, sizeof(size_t));
-						padre1 = (Soldados*) malloc(tempSize);
-						out.read((char*)padre1,tempSize);
-						team2.push_back(padre1);
+						dad = (Soldados*) malloc(tempSize);
+						out.read((char*)dad,tempSize);
+						team2.push_back(dad);
 					}
 					out.close();
 				}		
