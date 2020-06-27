@@ -331,14 +331,14 @@ int main(int argc, char** argv) {
 					}
 					file.close();
 				}else if(opcion == 2){
-					ifstream f_ile("team2.dat",ios::binary);
+					ifstream out("team2.dat",ios::binary);
 					for(int i = 0;i<team2.size();i++){
-						f_ile.read((char*)&tempSize, sizeof(size_t));
+						out.read((char*)&tempSize, sizeof(size_t));
 						padre1 = (Soldados*) malloc(tempSize);
-						f_ile.read((char*)padre1,tempSize);
+						out.read((char*)padre1,tempSize);
 						team2.push_back(padre1);
 					}
-					f_ile.close();
+					out.close();
 				}		
 				break;
 			}
