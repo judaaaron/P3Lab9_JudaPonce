@@ -335,8 +335,17 @@ int main(int argc, char** argv) {
 						}if(t2==0){
 							controlTeam2 = false;
 						}
-						team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
-						team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));		
+						int turnos=0;
+						if(turnos%2==0){
+							team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
+							team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));
+							turnos++;
+						}else{
+							team1[random1]->PVida(controlTeam2,team2[random2]->Ataque(controlTeam1));
+							team2[random2]->PVida(controlTeam1,team1[random1]->Ataque(controlTeam2));
+							turnos++;
+						}
+					
 						if(team2[random2]->getPvida()<=0){
 							delete team2[random2];
 							team2.erase(team2.begin()+random2);
