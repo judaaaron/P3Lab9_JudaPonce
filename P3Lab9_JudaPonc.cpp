@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 		cout<<"2. Eliminar soldados"<<endl;
 		cout<<"3. Listar soldados"<<endl;
 		cout<<"4. Guardar soldados(en la opcion 1)"<<endl;
-		cout<<"5. Cargar soldados(no termindo)"<<endl;
+		cout<<"5. Cargar soldados(no funciona :("<<endl;
 		cout<<"6. Simulación"<<endl;
 		cout<<"7 Salir"<<endl;
 		cin>>opcion;
@@ -314,7 +314,31 @@ int main(int argc, char** argv) {
 			}
 			
 			case 5:{// Cargar soldados
-				cout<<"No me salio :("<<endl;
+				int subMenu;
+				cout<<endl<<"1.Cargar Equipo#1"<<endl<<"2.Cargar Equipo#2"<<endl<<"Elija la Opcion:";
+				cin >> subMenu;
+				size_t tempSize=0;
+				Soldados* padre1 = NULL;
+				if(subMenu == 1){
+					ifstream file("team1.dat",ios::binary);
+					for(int i = 0;i<team1.size();i++){
+						 
+						file.read((char*)&tempSize, sizeof(size_t));
+						padre1 = (Soldados*) malloc(tempSize);
+						file.read((char*)padre1,tempSize);
+						team1.push_back(padre1);
+					}
+					file.close();
+				}else if(subMenu == 2){
+					ifstream f_ile("team2.dat",ios::binary);
+					for(int i = 0;i<team2.size();i++){
+						f_ile.read((char*)&tempSize, sizeof(size_t));
+						padre1 = (Soldados*) malloc(tempSize);
+						f_ile.read((char*)padre1,tempSize);
+						team2.push_back(padre1);
+					}
+					f_ile.close();
+				}		
 				break;
 			}
 			
